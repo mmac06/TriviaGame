@@ -1,9 +1,21 @@
 body {
-    background-color: blue;
+    background-color: yellow;
     text-align: center;
 }
 
 
 #headerBox {
     background-color: red;
+}
+
+#timeBox {
+    background-color: green;
+}
+
+#questionBox {
+    background-color: orchid;
+}
+
+#answerBox {
+    background-color: blueviolet;
 }
