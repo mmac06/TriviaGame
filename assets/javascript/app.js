@@ -47,11 +47,15 @@ function run() {
 }
 
 function questionDisplay() {
-    $("#questionBox").html("<h2>" + "Questions here" + "</h2>");
+    $("#questionBox").html("<h2>" + questionAnswer[index].question + "</h2>");
+
 }
 
 function answerDisplay() {
-    $("#answerBox").html("<h2>" + "Answers here" + "</h2>");
+    $("#answerBox").html("<h3>" + questionAnswer[index].answers + "</h3>");
+
+    for (var i = 0; i < questionAnswer[index].answers.length; i++);
+    $("#answerBox").append(questionAnswer[index].answers[i]);
 }
 
 //  The decrement function.
@@ -74,6 +78,8 @@ function stop() {
     //  to the clearInterval function.
     clearInterval(intervalId);
 }
+
+// Run my functions
 run();
 questionDisplay();
 answerDisplay();
