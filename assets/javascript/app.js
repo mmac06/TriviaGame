@@ -45,6 +45,10 @@ function questionDisplay() {
     $("#questionBox").html("<h2>" + "Questions here" + "</h2>");
 }
 
+function answerDisplay() {
+    $("#answerBox").html("<h2>" + "Answers here" + "</h2>");
+}
+
 //  The decrement function.
 function decrement() {
     //  Decrease timer by one.
@@ -67,3 +71,4 @@ function stop() {
 }
 run();
 questionDisplay();
+answerDisplay();
