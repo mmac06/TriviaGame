@@ -42,7 +42,7 @@ function run() {
 }
 
 function questionDisplay() {
-    $("#question").html("<h2>" + "Questions here" + "</h2>");
+    $("#questionBox").html("<h2>" + "Questions here" + "</h2>");
 }
 
 //  The decrement function.
