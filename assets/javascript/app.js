@@ -1,3 +1,4 @@
+// Set up question/answer array
 var questionAnswer = [
     {
         question: "What medical condition did the character Walter White Jr. suffer from on the TV Show 'Breaking Bad'?",
@@ -29,6 +30,10 @@ var questionAnswer = [
 
 //  Set our number counter to 30 and initialize variables.
 var timer = 30;
+var scoreCorrect = 0;
+var scoreIncorrect = 0;
+var scoreUnanswered = 0;
+var index = 0;
 var intervalId;
 var question;
 
