@@ -46,17 +46,26 @@ function run() {
     intervalId = setInterval(decrement, 1000);
 }
 
-function questionDisplay() {
-    $("#questionBox").html("<h2>" + questionAnswer[index].question + "</h2>");
+// display questions and answers
+function triviaDisplay() {
+    $("#questionBox").html("<h4>" + questionAnswer[index].question + "</h4>");
+    for (var i = 0; i < questionAnswer[index].answers.length; i++){
+    $("#answerBox").append(" " + "<button>" + questionAnswer[index].answers[i] + "</button>");
+    }
+    $("button").click(function () {
+        alert("You clicked a button!");
+        
+        });
 
 }
 
-function answerDisplay() {
-    $("#answerBox").html("<h3>" + questionAnswer[index].answers + "</h3>");
 
-    for (var i = 0; i < questionAnswer[index].answers.length; i++);
-    $("#answerBox").append(questionAnswer[index].answers[i]);
-}
+
+
+// function answerDisplay() {
+//     $("#answerBox").html("<h3>" + questionAnswer[index].answers + "</h3>");
+
+// }
 
 //  The decrement function.
 function decrement() {
@@ -81,5 +90,5 @@ function stop() {
 
 // Run my functions
 run();
-questionDisplay();
-answerDisplay();
+triviaDisplay();
+// answerDisplay();
