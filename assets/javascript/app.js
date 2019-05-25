@@ -3,25 +3,25 @@ var questionAnswer = [
     {
         question: "What medical condition did the character Walter White Jr. suffer from on the TV Show 'Breaking Bad'?",
         answers: ["Cerebral Palsy", "Parkinson's Disease", "Multiple Sclerosis", "Cancer"],
-        correctAnswer: 1,
+        correctAnswer: "Cerebral Palsy",
         animate: "TEST",
     },
     {
         question: "What was the name of the original advertising agency character 'Don Draper' worked for on the TV Show 'Mad Men'?",
         answers: ["Sterling Cooper", "Olson Pryce", "Campbell Cosgrove", "Crane & Associates"],
-        correctAnswer: 1,
+        correctAnswer: "Sterling Cooper",
         animate: "TEST",
     },
     {
         question: "What is the female lead character of the TV Show 'Parks and Recreation'?",
         answers: ["Liz Lemon", "Leslie Knope", "Miranda Sings", "Stefanie Wilsack"],
-        correctAnswer: 2,
+        correctAnswer: "Leslie Knope",
         animate: "TEST",
     },
     {
         question: "What mythical lands do the 9 great houses fight over in the TV Show 'The Game of Thrones'?",
         answers: ["Valhalla", "Westeros", "Avalon", "Middle Earth"],
-        correctAnswer: 2,
+        correctAnswer: "Westeros",
         animate: "TEST",
     }
 
@@ -34,7 +34,7 @@ var scoreCorrect = 0;
 var scoreIncorrect = 0;
 var scoreUnanswered = 0;
 var index = 0;
-var userGuess = "";
+var userChoice = "";
 var intervalId;
 var question;
 
@@ -47,14 +47,6 @@ function run() {
     intervalId = setInterval(decrement, 1000);
 }
 
-// for (var i = 0; i < questionAnswer[index].answers.length; i++) {
-//     var buttonID = $("<button>")
-//     // questionAnswer[index].answers[i];
-//     buttonID.attr("id", i);
-//     console.log(buttonID);
-// }
-
-
 
 // display questions and answers
 function triviaDisplay() {
@@ -65,14 +57,29 @@ function triviaDisplay() {
         console.log(button);
         $("#answerBox").append(button);
     }
-    for (var i = 0; i < questionAnswer[index].answers.length; i++){
-        $("#buttonValue"+[i]).append(questionAnswer[index].answers[i]);
+    for (var i = 0; i < questionAnswer[index].answers.length; i++) {
+        $("#buttonValue" + [i]).append(questionAnswer[index].answers[i]);
     }
-    
 
 
+    for (var i = 0; i < questionAnswer[index].answers.length; i++) {
+        $("#buttonValue" + [i]).click(function () {
+            userChoice = $(this).text();
+            console.log(userChoice);
+
+
+        });
+    }
+
+    // $("#buttonValue0").click(function () {
+    //     // console.log("You clicked a button!");
+    //     userChoice = $(this).text();
+    //     console.log(userChoice);
+    // });
 
 }
+
+
 
 
 
