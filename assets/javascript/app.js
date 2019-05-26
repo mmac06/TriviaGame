@@ -4,7 +4,7 @@ var questionAnswer = [
         question: "What medical condition did the character Walter White Jr. suffer from on the TV Show 'Breaking Bad'?",
         answers: ["Cerebral Palsy", "Parkinson's Disease", "Multiple Sclerosis", "Cancer"],
         correctAnswer: "Cerebral Palsy",
-        animate: "TEST",
+        animate: <iframe src="https://giphy.com/embed/CW27AW0nlp5u0" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/laughing-smiling-30-rock-CW27AW0nlp5u0">via GIPHY</a></p>,
     },
     {
         question: "What was the name of the original advertising agency character 'Don Draper' worked for on the TV Show 'Mad Men'?",
@@ -61,21 +61,18 @@ function triviaDisplay() {
         $("#buttonValue" + [i]).append(questionAnswer[index].answers[i]);
     }
 
-
     for (var i = 0; i < questionAnswer[index].answers.length; i++) {
         $("#buttonValue" + [i]).click(function () {
             userChoice = $(this).text();
             console.log(userChoice);
-
+            if (userChoice === questionAnswer[index].correctAnswer) {
+                $("#imageBox").append(questionAnswer[index].animate);
+            }
 
         });
-    }
 
-    // $("#buttonValue0").click(function () {
-    //     // console.log("You clicked a button!");
-    //     userChoice = $(this).text();
-    //     console.log(userChoice);
-    // });
+
+    }
 
 }
 
