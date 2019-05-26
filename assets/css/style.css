@@ -10,12 +10,24 @@ body {
 
 #timeBox {
     background-color: green;
+    padding-top: 35px;
+    padding-bottom: 35px;
 }
 
 #questionBox {
     background-color: orchid;
+    padding-top: 35px;
+    padding-bottom: 35px;
 }
 
 #answerBox {
     background-color: blueviolet;
+    padding-top: 35px;
+    padding-bottom: 35px;
+}
+
+#imageBox {
+    background-color: black;
+    padding-top: 35px;
+    padding-bottom: 35px;
 }

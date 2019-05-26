@@ -3,8 +3,12 @@ var questionAnswer = [
     {
         question: "What medical condition did the character Walter White Jr. suffer from on the TV Show 'Breaking Bad'?",
         answers: ["Cerebral Palsy", "Parkinson's Disease", "Multiple Sclerosis", "Cancer"],
-        correctAnswer: "Cerebral Palsy",
-        animate: <iframe src="https://giphy.com/embed/CW27AW0nlp5u0" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/laughing-smiling-30-rock-CW27AW0nlp5u0">via GIPHY</a></p>,
+        correctAnswer: "Cancer",
+        animate: "/TriviaGame/assets/images/lizlemon1.gif",
+
+        // "/Users/mikemcmahon/Desktop/coding/TriviaGame/assets/images/lizlemon1.gif"
+        // "https://static.independent.co.uk/s3fs-public/thumbnails/image/2016/11/16/12/homer-simpson.jpeg",
+
     },
     {
         question: "What was the name of the original advertising agency character 'Don Draper' worked for on the TV Show 'Mad Men'?",
@@ -66,7 +70,7 @@ function triviaDisplay() {
             userChoice = $(this).text();
             console.log(userChoice);
             if (userChoice === questionAnswer[index].correctAnswer) {
-                $("#imageBox").append(questionAnswer[index].animate);
+                $("#imageBox").html("<img src=" + questionAnswer[index].animate + ">");
             }
 
         });
