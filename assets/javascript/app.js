@@ -76,7 +76,7 @@ function triviaDisplay() {
             } else {
                 scoreIncorrect++;
                 alert("Incorrect! The correct answer is: " + questionAnswer[index].correctAnswer);
-                
+                stop(timer);
             }
 
         });
