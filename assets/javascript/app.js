@@ -65,13 +65,18 @@ function triviaDisplay() {
         $("#buttonValue" + [i]).click(function () {
             userChoice = $(this).text();
             console.log(userChoice);
+
+            // if user guesses correctly vs incorrectly
             if (userChoice === questionAnswer[index].correctAnswer) {
                 scoreCorrect ++;
                 alert("Correct!");
                 $("#imageBox").html("<img src=" + questionAnswer[index].animate + ">");
+                stop(timer);
 
             } else {
+                scoreIncorrect++;
                 alert("Incorrect! The correct answer is: " + questionAnswer[index].correctAnswer);
+                
             }
 
         });
