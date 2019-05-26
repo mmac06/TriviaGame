@@ -5,10 +5,6 @@ var questionAnswer = [
         answers: ["Cerebral Palsy", "Parkinson's Disease", "Multiple Sclerosis", "Cancer"],
         correctAnswer: "Cancer",
         animate: "/TriviaGame/assets/images/lizlemon1.gif",
-
-        // "/Users/mikemcmahon/Desktop/coding/TriviaGame/assets/images/lizlemon1.gif"
-        // "https://static.independent.co.uk/s3fs-public/thumbnails/image/2016/11/16/12/homer-simpson.jpeg",
-
     },
     {
         question: "What was the name of the original advertising agency character 'Don Draper' worked for on the TV Show 'Mad Men'?",
@@ -70,7 +66,12 @@ function triviaDisplay() {
             userChoice = $(this).text();
             console.log(userChoice);
             if (userChoice === questionAnswer[index].correctAnswer) {
+                scoreCorrect ++;
+                alert("Correct!");
                 $("#imageBox").html("<img src=" + questionAnswer[index].animate + ">");
+
+            } else {
+                alert("Incorrect! The correct answer is: " + questionAnswer[index].correctAnswer);
             }
 
         });
