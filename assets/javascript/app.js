@@ -42,7 +42,7 @@ var question;
 //  that runs the decrement function once a second.
 //  *****BUG FIX******** 
 //  Clearing the intervalId prior to setting our new intervalId will not allow multiple instances.
-function run() {
+function runTimer() {
     clearInterval(intervalId);
     intervalId = setInterval(decrement, 1000);
 }
@@ -56,9 +56,11 @@ function triviaDisplay() {
         button.attr("id", "buttonValue" + i);
         console.log(button);
         $("#answerBox").append(button);
+        // console.log("test: " + questionAnswer[index ++].question);
     }
     for (var i = 0; i < questionAnswer[index].answers.length; i++) {
         $("#buttonValue" + [i]).append(questionAnswer[index].answers[i]);
+
     }
 
     for (var i = 0; i < questionAnswer[index].answers.length; i++) {
@@ -72,6 +74,7 @@ function triviaDisplay() {
                 alert("Correct!");
                 $("#imageBox").html("<img src=" + questionAnswer[index].animate + ">");
                 stop(timer);
+
 
             } else {
                 scoreIncorrect++;
@@ -87,14 +90,8 @@ function triviaDisplay() {
 }
 
 
-
-
-
-
-// function answerDisplay() {
-//     $("#answerBox").html("<h3>" + questionAnswer[index].answers + "</h3>");
-
-// }
+console.log("choice: " + userChoice);
+console.log("questionAnswer[index].question: " + questionAnswer[3].question)
 
 //  The decrement function.
 function decrement() {
@@ -104,6 +101,7 @@ function decrement() {
     $("#showNumber").html("<h2>" + "Time Remaining: " + timer + "</h2>");
     //  Once timer hits zero...
     if (timer === 0) {
+        scoreUnanswered ++;
         //  ...run the stop function.
         stop();
         //  Alert the user that time is up.
@@ -118,6 +116,6 @@ function stop() {
 }
 
 // Run my functions
-run();
+runTimer();
 triviaDisplay();
 // answerDisplay();

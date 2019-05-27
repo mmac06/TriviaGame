@@ -1,3 +1,7 @@
+.quiz, .summary {
+    display: none;
+}
+
 body {
     background-color: yellow;
     text-align: center;
