@@ -21,21 +21,21 @@ var questionAnswer = [
         answers: ["Sterling Cooper", "Olson Pryce", "Campbell Cosgrove", "Crane & Associates"],
         correctAnswer: "Sterling Cooper",
         animate: "/TriviaGame/assets/images/thumbsup1.gif",
-        wrongAnimate: "/TriviaGame/assets/images/wrong1.gif",
+        wrongAnimate: "/TriviaGame/assets/images/no1.gif",
     },
     {
         question: "What is the female lead character of the TV Show 'Parks and Recreation'?",
         answers: ["Liz Lemon", "Leslie Knope", "Miranda Sings", "Stefanie Wilsack"],
         correctAnswer: "Leslie Knope",
         animate: "/TriviaGame/assets/images/lizlemon1.gif",
-        wrongAnimate: "/TriviaGame/assets/images/wrong1.gif",
+        wrongAnimate: "/TriviaGame/assets/images/no2.gif",
     },
     {
         question: "What mythical lands do the 9 great houses fight over in the TV Show 'The Game of Thrones'?",
         answers: ["Valhalla", "Westeros", "Avalon", "Middle Earth"],
         correctAnswer: "Westeros",
         animate: "/TriviaGame/assets/images/ok1.gif",
-        wrongAnimate: "/TriviaGame/assets/images/wrong1.gif",
+        wrongAnimate: "/TriviaGame/assets/images/no1.gif",
     }
 
 ]
