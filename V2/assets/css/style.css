@@ -7,13 +7,18 @@
 }
 
 body {
-    background-color: yellow;
+    /* background-color: yellow; */
+    background-image: url(/TriviaGame/V2/assets/images/90sbackground1.png);
     text-align: center;
 }
 
-.selected {
-    background-color: green;
+.container {
+    background-color: white; 
 }
+
+/* .selected {
+    background-color: green;
+} */
 
 button {
     margin-left: 5px;
@@ -21,27 +26,27 @@ button {
 }
 
 #timer {
-    background-color: green;
+    /* background-color: green; */
     padding-top: 35px;
     padding-bottom: 35px;
 }
 
 #questionBox {
-    background-color: orchid;
+    /* background-color: orchid; */
     padding-top: 35px;
     padding-bottom: 35px;
     margin: 0px;
 }
 
 #answerBox {
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
     padding-top: 35px;
     padding-bottom: 35px;
     margin-bottom: 100px;
 }
 
 #imageBox {
-    background-color: black;
+    /* background-color: black; */
     padding-top: 35px;
     padding-bottom: 35px;
     margin-bottom: 50px;
