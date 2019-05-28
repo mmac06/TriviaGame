@@ -14,40 +14,43 @@
 </head>
 
 <body>
+
     <div class="container">
         <div class="row">
             <div class="col-sm-2"></div>
-            <div class="col-sm-8" id="headerBox">
-                <h1>Totally Trivial Trivia</h1>
+            <div class="col-sm-8">
+                <h1>Totally Awseome Trivia</h1>
             </div>
             <div class="col-sm-2"></div>
         </div>
-        <div class="row">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-8" id="timeBox">
-                <div id=showNumber></div>
-            </div>
-            <div class="col-sm-2"></div>
-        </div>
-        <div class="row">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-8" id="questionBox"></div>
-            <div class="col-sm-2"></div>
-        </div>
-        <div class="row">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-8" id="answerBox"></div>
-            <div class="col-sm-2"></div>
-        </div>
-        <div class="row">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-8" id="imageBox"></div>
-            <div class="col-sm-2"></div>
+<!-- welcome screen -->
+        <div class="start">
+            <h2>Welcome</h2>
+            <a href="#">Start Quiz</a>
         </div>
 
-        <!-- Added link to the jQuery Library/ Javascript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="/TriviaGame/assets/javascript/app.js"></script>
+        <div class="quiz">
+            <div id="timer"></div>
+            <h2 id="questionBox">Question Title</h2>
+            <ul id="answerBox">
+            </ul>
+            <div id="imageBox"></div>
+        </div>
+
+
+        <div class="summary">
+            <p></p>
+            <h2>Score Summary</h2>
+            <p></p>
+            <h3 id=scoreCorrect></h3>
+            <h3 id=scoreIncorrect></h3>
+            <a href="#">Restart Quiz</a>
+        </div>
+    </div>
+
+    <!-- Added link to the jQuery Library/ Javascript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/TriviaGame/assets/javascript/app.js"></script>
 </body>
 
 </html>
