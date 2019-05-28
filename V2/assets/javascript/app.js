@@ -2,9 +2,7 @@
 var timer = 30;
 var scoreCorrect = 0;
 var scoreIncorrect = 0;
-var scoreUnanswered = 0;
 var currentQuestion = 0;
-var index = 0;
 var userChoice = "";
 var intervalId;
 var question;
@@ -49,6 +47,8 @@ $(document).ready(function () {
         $(".start").hide();
         $(".quiz").show();
         showQuestion();
+        runTimer();
+
     });
 
 
@@ -62,8 +62,11 @@ $(document).ready(function () {
             // passes the variable "userChoice" into the checkAnswer function below
             checkAnswer(userChoice);
         };
+    });
 
-
+    $(".summary a").click(function (e) {
+        e.preventDefault();
+        reset();
     });
 
 });
@@ -93,12 +96,12 @@ function checkAnswer(userChoice) {
         alert("Incorrect! The correct answer is: " + questionAnswer[currentQuestion].correctAnswer);
     }
     // calls the next question/answer series
-    currentQuestion ++;
+    currentQuestion++;
     // pulls summary screen after user answers all questions
-    if(currentQuestion >= questionAnswer.length){
+    if (currentQuestion >= questionAnswer.length) {
         showSummary();
     } else {
-    showQuestion ();
+        showQuestion();
     }
 }
 
@@ -110,6 +113,14 @@ function showSummary() {
 
 }
 
+function reset() {
+    timer = 30;
+    scoreCorrect = 0;
+    scoreIncorrect = 0;
+    currentQuestion = 0;
+    $(".start").show();
+    $(".summary").hide();
+}
 
 
 //  The run function sets an interval
@@ -129,14 +140,21 @@ function decrement() {
     //  Decrease timer by one.
     timer--;
     //  Show the timer in the #showNumber tag.
-    $("#showNumber").html("<h2>" + "Time Remaining: " + timer + "</h2>");
+    $("#timer").html("<h2>" + "Time Remaining: " + timer + "</h2>");
     //  Once timer hits zero...
     if (timer === 0) {
-        scoreUnanswered++;
-        //  ...run the stop function.
-        stop();
+        scoreIncorrect++;
         //  Alert the user that time is up.
-        // alert("Time Up!");
+        alert("Time Up!");
+        timer = 30;
+        runTimer();
+        currentQuestion++;
+        if (currentQuestion >= questionAnswer.length) {
+            showSummary();
+        } else {
+            showQuestion();
+
+        }
     }
 }
 function stop() {
@@ -145,7 +163,3 @@ function stop() {
     //  to the clearInterval function.
     clearInterval(intervalId);
 }
-
-// Run my functions
-runTimer();
-// answerDisplay();
