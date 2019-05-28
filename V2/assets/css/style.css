@@ -11,6 +11,10 @@ body {
     text-align: center;
 }
 
+.selected {
+    background-color: green;
+}
+
 
 #headerBox {
     background-color: red;
