@@ -120,6 +120,7 @@ function checkAnswer(userChoice) {
 
     // pulls summary screen after user answers all questions
     if (currentQuestion >= questionAnswer.length) {
+        stop();
         showSummary();
     } else {
         showQuestion();
