@@ -2,6 +2,10 @@
     display: none;
 }
 
+.quiz ul {
+    list-style: none;
+}
+
 body {
     background-color: yellow;
     text-align: center;

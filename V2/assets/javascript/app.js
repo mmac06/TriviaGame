@@ -48,6 +48,12 @@ $(document).ready(function () {
     });
 
 
+    // WHEN USER SELECTS LI ANSWERS
+    $(".quiz ul").on("click", "li", function(){
+
+    });
+
+
 
 });
 
@@ -56,6 +62,10 @@ $(document).ready(function () {
 function showQuestion() {
     var question = questionAnswer[currentQuestion];
     $("#questionBox").text(question.question);
+    for(var i=0; i<question.answers.length; i++){
+        $(".quiz ul").append("<button id = '"+i+"'>" + question.answers[i]+"</button>")
+
+    }
 
 }
 
