@@ -15,13 +15,15 @@ var questionAnswer = [
         correctAnswer: "Cancer",
         // correctAnswer: 3,
         animate: "/TriviaGame/V2/assets/images/lizlemon1.gif",
+        wrongAnimate: "/TriviaGame/V2/assets/images/wrong1.gif",
     },
     {
         question: "What was the name of the original advertising agency character 'Don Draper' worked for on the TV Show 'Mad Men'?",
         answers: ["Sterling Cooper", "Olson Pryce", "Campbell Cosgrove", "Crane & Associates"],
         correctAnswer: "Sterling Cooper",
         // correctAnswer: 0,
-        animate: "/TriviaGame/V2/assets/images/lizlemon1.gif"
+        animate: "/TriviaGame/V2/assets/images/lizlemon1.gif",
+        wrongAnimate: "/TriviaGame/V2/assets/images/wrong1.gif",
     },
     {
         question: "What is the female lead character of the TV Show 'Parks and Recreation'?",
@@ -29,6 +31,7 @@ var questionAnswer = [
         correctAnswer: "Leslie Knope",
         // correctAnswer: 1,
         animate: "/TriviaGame/V2/assets/images/lizlemon1.gif",
+        wrongAnimate: "/TriviaGame/V2/assets/images/wrong1.gif",
     },
     {
         question: "What mythical lands do the 9 great houses fight over in the TV Show 'The Game of Thrones'?",
@@ -36,6 +39,7 @@ var questionAnswer = [
         correctAnswer: "Westeros",
         // correctAnswer: 1,
         animate: "/TriviaGame/V2/assets/images/lizlemon1.gif",
+        wrongAnimate: "/TriviaGame/V2/assets/images/wrong1.gif",
     }
 
 ]
@@ -101,6 +105,8 @@ function checkAnswer(userChoice) {
         scoreIncorrect++;
         stop();
         alert("Incorrect! The correct answer is: " + questionAnswer[currentQuestion].correctAnswer);
+        $("#imageBox").html("<img src=" + questionAnswer[currentQuestion].wrongAnimate + ">").show();
+        setTimeout(function () { $("#imageBox").hide(); }, 3000);
     }
    
     
