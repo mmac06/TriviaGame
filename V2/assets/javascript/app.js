@@ -14,29 +14,29 @@ var questionAnswer = [
     {
         question: "What medical condition did the character Walter White Jr. suffer from on the TV Show 'Breaking Bad'?",
         answers: ["Cerebral Palsy", "Parkinson's Disease", "Multiple Sclerosis", "Cancer"],
-        // correctAnswer: "Cancer",
-        correctAnswer: 3,
+        correctAnswer: "Cancer",
+        // correctAnswer: 3,
         animate: "/TriviaGame/assets/images/lizlemon1.gif",
     },
     {
         question: "What was the name of the original advertising agency character 'Don Draper' worked for on the TV Show 'Mad Men'?",
         answers: ["Sterling Cooper", "Olson Pryce", "Campbell Cosgrove", "Crane & Associates"],
-        // correctAnswer: "Sterling Cooper",
-        correctAnswer: 0,
+        correctAnswer: "Sterling Cooper",
+        // correctAnswer: 0,
         animate: "TEST",
     },
     {
         question: "What is the female lead character of the TV Show 'Parks and Recreation'?",
         answers: ["Liz Lemon", "Leslie Knope", "Miranda Sings", "Stefanie Wilsack"],
-        // correctAnswer: "Leslie Knope",
-        correctAnswer: 1,
+        correctAnswer: "Leslie Knope",
+        // correctAnswer: 1,
         animate: "TEST",
     },
     {
         question: "What mythical lands do the 9 great houses fight over in the TV Show 'The Game of Thrones'?",
         answers: ["Valhalla", "Westeros", "Avalon", "Middle Earth"],
-        // correctAnswer: "Westeros",
-        correctAnswer: 1,
+        correctAnswer: "Westeros",
+        // correctAnswer: 1,
         animate: "TEST",
     }
 
@@ -53,38 +53,47 @@ $(document).ready(function () {
 
 
     // WHEN USER SELECTS LI ANSWERS
-    $(".quiz ul").on("click", "button", function(){
+    $(".quiz ul").on("click", "button", function () {
         $(".selected").removeClass("selected");
         $(this).addClass("selected");
-        if($("button.selected").length){
-            userChoice = parseInt($("button.selected").attr("id"));
-            console.log("choice: " + userChoice);
+        if ($("button.selected").length) {
+            userChoice = $("button.selected").text();
+            console.log(userChoice);
             // passes the variable "userChoice" into the checkAnswer function below
             checkAnswer(userChoice);
-    };
+        };
 
- 
+
+    });
+
 });
 
-});
-
+// calls the question and answer options
 function showQuestion() {
     var question = questionAnswer[currentQuestion];
     $("#questionBox").text(question.question);
-    for(var i=0; i<question.answers.length; i++){
-        $(".quiz ul").append("<button id = '"+i+"'>" + question.answers[i]+"</button>")
+    $(".quiz ul").empty();
+    // adds answers with ID based on position in array
+    for (var i = 0; i < question.answers.length; i++) {
+        $(".quiz ul").append("<button id = '" + i + "'>" + question.answers[i] + "</button>")
 
     }
 
 }
 
+// checks the user selection vs. the correct answer from the array
 function checkAnswer(userChoice) {
     var question = questionAnswer[currentQuestion];
-    if (question.correctAnswer === userChoice){
-        scoreCorrect ++;
+    if (question.correctAnswer === userChoice) {
+        scoreCorrect++;
         alert("Correct!");
-        $("#imageBox").html("<img src=" + questionAnswer[index].animate + ">");
+        $("#imageBox").html("<img src=" + questionAnswer[currentQuestion].animate + ">");
+    } else {
+        scoreIncorrect++;
+        alert("Incorrect! The correct answer is: " + questionAnswer[currentQuestion].correctAnswer);
     }
+    currentQuestion ++;
+    showQuestion ();
 
 }
 
