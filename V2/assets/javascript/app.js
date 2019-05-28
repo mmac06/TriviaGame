@@ -89,16 +89,34 @@ function checkAnswer(userChoice) {
     var question = questionAnswer[currentQuestion];
     if (question.correctAnswer === userChoice) {
         scoreCorrect++;
+        stop();
         alert("Correct!");
-        $("#imageBox").html("<img src=" + questionAnswer[currentQuestion].animate + ">");
+
+
+
+        // creates gif image and hides after 3 seconds
+        $("#imageBox").html("<img src=" + questionAnswer[currentQuestion].animate + ">").show();
+        setTimeout(function () { $("#imageBox").hide(); }, 3000);
     } else {
         scoreIncorrect++;
+        stop();
         alert("Incorrect! The correct answer is: " + questionAnswer[currentQuestion].correctAnswer);
     }
-    // calls the next question/answer series
+   
+    
+    // hides question/answers while gif displays, then calls the next question/answer series
+    $("#questionBox").hide();
+    $("#answerBox").hide();
+    $("#timer").hide();
     currentQuestion++;
-    timer = 30;
-    runTimer();
+    setTimeout(function () { timer = 30 }, 3000);
+    setTimeout(function () {$("#questionBox").show()}, 3000);
+    setTimeout(function () {$("#answerBox").show()}, 3000);
+    setTimeout(function () {$("#timer").show()}, 3000);
+    setTimeout(function () { runTimer() }, 3000);
+
+
+
     // pulls summary screen after user answers all questions
     if (currentQuestion >= questionAnswer.length) {
         showSummary();
@@ -107,6 +125,7 @@ function checkAnswer(userChoice) {
     }
 }
 
+// shows score at end of game
 function showSummary() {
     $(".quiz").hide();
     $(".summary").show();

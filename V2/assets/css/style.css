@@ -20,6 +20,11 @@ body {
     background-color: red;
 }
 
+button {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
 #timer {
     background-color: green;
     padding-top: 35px;
