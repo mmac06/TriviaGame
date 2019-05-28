@@ -52,7 +52,7 @@ $(document).ready(function () {
     });
 
 
-    // WHEN USER SELECTS LI ANSWERS
+    // WHEN USER SELECTS BUTTON ANSWERS
     $(".quiz ul").on("click", "button", function () {
         $(".selected").removeClass("selected");
         $(this).addClass("selected");
@@ -78,8 +78,8 @@ function showQuestion() {
     $(".quiz ul").empty();
     // adds answers with ID based on position in array
     for (var i = 0; i < question.answers.length; i++) {
-        $(".quiz ul").append("<button id = '" + i + "'>" + question.answers[i] + "</button>")
-
+        // $(".quiz ul").append("<button id = " + i + ">" + question.answers[i] + "</button>")
+        $(".quiz ul").append("<button id = " + i + " type = button class = \"btn btn-dark\">" + question.answers[i] + "</button>")
     }
 
 }
@@ -97,6 +97,8 @@ function checkAnswer(userChoice) {
     }
     // calls the next question/answer series
     currentQuestion++;
+    timer = 30;
+    runTimer();
     // pulls summary screen after user answers all questions
     if (currentQuestion >= questionAnswer.length) {
         showSummary();
@@ -145,10 +147,9 @@ function decrement() {
     if (timer === 0) {
         scoreIncorrect++;
         //  Alert the user that time is up.
-        alert("Time Up!");
-        timer = 30;
-        runTimer();
-        currentQuestion++;
+        // alert("Time Up!");
+        // timer = 30;
+        // currentQuestion++;
         if (currentQuestion >= questionAnswer.length) {
             showSummary();
         } else {
