@@ -16,28 +16,28 @@ var questionAnswer = [
         answers: ["Cerebral Palsy", "Parkinson's Disease", "Multiple Sclerosis", "Cancer"],
         correctAnswer: "Cancer",
         // correctAnswer: 3,
-        animate: "/TriviaGame/assets/images/lizlemon1.gif",
+        animate: "/TriviaGame/V2/assets/images/lizlemon1.gif",
     },
     {
         question: "What was the name of the original advertising agency character 'Don Draper' worked for on the TV Show 'Mad Men'?",
         answers: ["Sterling Cooper", "Olson Pryce", "Campbell Cosgrove", "Crane & Associates"],
         correctAnswer: "Sterling Cooper",
         // correctAnswer: 0,
-        animate: "TEST",
+        animate: "/TriviaGame/V2/assets/images/lizlemon1.gif"
     },
     {
         question: "What is the female lead character of the TV Show 'Parks and Recreation'?",
         answers: ["Liz Lemon", "Leslie Knope", "Miranda Sings", "Stefanie Wilsack"],
         correctAnswer: "Leslie Knope",
         // correctAnswer: 1,
-        animate: "TEST",
+        animate: "/TriviaGame/V2/assets/images/lizlemon1.gif",
     },
     {
         question: "What mythical lands do the 9 great houses fight over in the TV Show 'The Game of Thrones'?",
         answers: ["Valhalla", "Westeros", "Avalon", "Middle Earth"],
         correctAnswer: "Westeros",
         // correctAnswer: 1,
-        animate: "TEST",
+        animate: "/TriviaGame/V2/assets/images/lizlemon1.gif",
     }
 
 ]
@@ -92,12 +92,21 @@ function checkAnswer(userChoice) {
         scoreIncorrect++;
         alert("Incorrect! The correct answer is: " + questionAnswer[currentQuestion].correctAnswer);
     }
+    // calls the next question/answer series
     currentQuestion ++;
+    // pulls summary screen after user answers all questions
+    if(currentQuestion >= questionAnswer.length){
+        showSummary();
+    } else {
     showQuestion ();
-
+    }
 }
 
 function showSummary() {
+    $(".quiz").hide();
+    $(".summary").show();
+    $("#scoreCorrect").text("Correct Answers: " + scoreCorrect);
+    $("#scoreIncorrect").text("Incorrect Answers: " + scoreIncorrect);
 
 }
 
