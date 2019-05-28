@@ -13,7 +13,6 @@ var questionAnswer = [
         question: "What medical condition did the character Walter White Jr. suffer from on the TV Show 'Breaking Bad'?",
         answers: ["Cerebral Palsy", "Parkinson's Disease", "Multiple Sclerosis", "Cancer"],
         correctAnswer: "Cancer",
-        // correctAnswer: 3,
         animate: "/TriviaGame/assets/images/lizlemon1.gif",
         wrongAnimate: "/TriviaGame/assets/images/wrong1.gif",
     },
@@ -21,15 +20,13 @@ var questionAnswer = [
         question: "What was the name of the original advertising agency character 'Don Draper' worked for on the TV Show 'Mad Men'?",
         answers: ["Sterling Cooper", "Olson Pryce", "Campbell Cosgrove", "Crane & Associates"],
         correctAnswer: "Sterling Cooper",
-        // correctAnswer: 0,
-        animate: "/TriviaGame/assets/images/lizlemon1.gif",
+        animate: "/TriviaGame/assets/images/thumbsup1.gif",
         wrongAnimate: "/TriviaGame/assets/images/wrong1.gif",
     },
     {
         question: "What is the female lead character of the TV Show 'Parks and Recreation'?",
         answers: ["Liz Lemon", "Leslie Knope", "Miranda Sings", "Stefanie Wilsack"],
         correctAnswer: "Leslie Knope",
-        // correctAnswer: 1,
         animate: "/TriviaGame/assets/images/lizlemon1.gif",
         wrongAnimate: "/TriviaGame/assets/images/wrong1.gif",
     },
@@ -37,8 +34,7 @@ var questionAnswer = [
         question: "What mythical lands do the 9 great houses fight over in the TV Show 'The Game of Thrones'?",
         answers: ["Valhalla", "Westeros", "Avalon", "Middle Earth"],
         correctAnswer: "Westeros",
-        // correctAnswer: 1,
-        animate: "/TriviaGame/assets/images/lizlemon1.gif",
+        animate: "/TriviaGame/assets/images/ok1.gif",
         wrongAnimate: "/TriviaGame/assets/images/wrong1.gif",
     }
 
@@ -46,8 +42,8 @@ var questionAnswer = [
 
 $(document).ready(function () {
 
-    $(".start a").click(function (e) {
-        e.preventDefault();
+// start button click starts the game
+    $("#srt-btn").click(function () {
         $(".start").hide();
         $(".quiz").show();
         showQuestion();
@@ -68,8 +64,8 @@ $(document).ready(function () {
         };
     });
 
-    $(".summary a").click(function (e) {
-        e.preventDefault();
+    $("#reset-btn").click(function (e) {
+        // e.preventDefault();
         reset();
     });
 
@@ -82,7 +78,6 @@ function showQuestion() {
     $(".quiz ul").empty();
     // adds answers with ID based on position in array
     for (var i = 0; i < question.answers.length; i++) {
-        // $(".quiz ul").append("<button id = " + i + ">" + question.answers[i] + "</button>")
         $(".quiz ul").append("<button id = " + i + " type = button class = \"btn btn-dark\">" + question.answers[i] + "</button>")
     }
 
@@ -95,9 +90,9 @@ function checkAnswer(userChoice) {
         scoreCorrect++;
         stop();
         alert("Correct!");
-        // creates gif image and hides after 3 seconds
+        // creates gif image and hides after 2.5 seconds
         $("#imageBox").html("<img src=" + questionAnswer[currentQuestion].animate + ">").show();
-        setTimeout(function () { $("#imageBox").hide(); }, 3000);
+        setTimeout(function () { $("#imageBox").hide(); }, 2500);
 
     } else {
         scoreIncorrect++;
@@ -141,6 +136,7 @@ function showSummary() {
 }
 
 function reset() {
+    stop();
     timer = 30;
     scoreCorrect = 0;
     scoreIncorrect = 0;
