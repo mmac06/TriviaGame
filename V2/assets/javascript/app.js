@@ -172,10 +172,11 @@ function decrement() {
     if (timer === 0) {
         scoreIncorrect++;
         //  Alert the user that time is up.
-        // alert("Time Up!");
-        // timer = 30;
-        // currentQuestion++;
+        alert("Time Up!");
+        timer = 30;
+        currentQuestion++;
         if (currentQuestion >= questionAnswer.length) {
+            stop();
             showSummary();
         } else {
             showQuestion();
