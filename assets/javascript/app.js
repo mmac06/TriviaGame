@@ -130,6 +130,7 @@ function checkAnswer(userChoice) {
 
 // shows score at end of game
 function showSummary() {
+    stop();
     $(".quiz").hide();
     $(".summary").show();
     $("#scoreCorrect").text("Correct Answers: " + scoreCorrect);
