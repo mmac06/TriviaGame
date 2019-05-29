@@ -121,7 +121,8 @@ function checkAnswer(userChoice) {
     // pulls summary screen after user answers all questions
     if (currentQuestion >= questionAnswer.length) {
         stop();
-        showSummary();
+        setTimeout(function () {showSummary()}, 2900);
+        // showSummary();
     } else {
         showQuestion();
     }
